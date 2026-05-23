@@ -1,4 +1,4 @@
-## Creating Custom Credential Type for EDA with . 
+## Creating Custom Credential Type for EDA, Passing as extra_vars (Environment/Memory Injection)) . 
 
 ```
 Name: OpenShift Token Type
