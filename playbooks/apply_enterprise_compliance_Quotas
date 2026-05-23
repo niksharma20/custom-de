@@ -1,0 +1,25 @@
+---
+- name: Apply Enterprise Compliance Quotas
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    # 'namespace' is passed automatically from the EDA Rulebook
+    target_namespace: "{{ namespace }}"
+
+  tasks:
+    - name: Create ResourceQuota object in the new namespace
+      kubernetes.core.k8s:
+        definition:
+          apiVersion: v1
+          kind: ResourceQuota
+          metadata:
+            name: enterprise-default-quota
+            namespace: "{{ target_namespace }}"
+          spec:
+            hard:
+              pods: "4"
+              requests.cpu: "1"
+              requests.memory: 1Gi
+              limits.cpu: "2"
+              limits.memory: 2Gi
