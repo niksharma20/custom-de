@@ -1,11 +1,11 @@
-## Creating Custom Credential Type for EDA, Generating a file: Kubeconfig (Secure File Projection) . 
+## Creating Custom Credential Type for EDA, Generating a file: Kubeconfig (Secure File Projection)  
 
 ```
 Name: OpenShift Token Type
 Description: For mapping OpenShift Bearer tokens into rulebooks
-```. 
+```
 
-Input Configuration. 
+**Input Configuration**  
 ```yaml
 fields:
   - id: host
@@ -18,8 +18,8 @@ fields:
 required:
   - host
   - token
-```. 
-Injector Configuration
+```  
+**Injector Configuration**
 ```yaml
 file:
   template.kubeconfig: |
@@ -40,4 +40,4 @@ file:
       - name: eda-runner
         user:
           token: "{{ token }}"
-```. 
+```  
