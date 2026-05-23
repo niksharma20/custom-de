@@ -22,23 +22,22 @@ required:
 Injector Configuration
 ```yaml
 file:
-  template: |
+  template.kubeconfig: |
     apiVersion: v1
     kind: Config
     clusters:
-    - cluster:
-        insecure-skip-tls-verify: true
-        server: "{{ host }}"
-      name: openshift-cluster
+      - cluster:
+          insecure-skip-tls-verify: true
+          server: "{{ host }}"
+        name: openshift-cluster
     contexts:
-    - context:
-        cluster: openshift-cluster
-        user: eda-runner
-      name: eda-context
+      - context:
+          cluster: openshift-cluster
+          user: eda-runner
+        name: eda-context
     current-context: eda-context
     users:
-    - name: eda-runner
-      user:
-        token: "{{ token }}"
-  template_filename: kubeconfig
+      - name: eda-runner
+        user:
+          token: "{{ token }}"
 ```. 
