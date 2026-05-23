@@ -10,7 +10,6 @@ rules:
   - apiGroups: ["sriovnetwork.openshift.io"]
     resources: ["sriovnetworks"]
     verbs: ["get", "list", "watch"]
-  # --- ADD THIS BLOCK FOR OPENSHIFT ROUTES ---
   - apiGroups: ["route.openshift.io"]
     resources: ["routes"]
     verbs: ["get", "list", "watch"]
