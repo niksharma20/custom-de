@@ -1,4 +1,4 @@
-## Creating Custom Credential Type for EDA, Passing as extra_vars (Environment/Memory Injection)) . 
+## Creating Custom Credential Type for EDA, Passing as extra_vars (Environment/Memory Injection) . 
 
 ```
 Name: OpenShift Token Type
@@ -24,5 +24,4 @@ Injector Configuration
 extra_vars:
   k8s_auth_host: "{{ host }}"
   k8s_auth_api_key: "{{ token }}"
-```
-
+```. 
