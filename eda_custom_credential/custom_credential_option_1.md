@@ -1,11 +1,11 @@
-## Creating Custom Credential Type for EDA, Passing as extra_vars (Environment/Memory Injection) . 
+## Creating Custom Credential Type for EDA, Passing as extra_vars (Environment/Memory Injection)  
 
 ```
 Name: OpenShift Token Type
 Description: For mapping OpenShift Bearer tokens into rulebooks
-```. 
+```
 
-Input Configuration. 
+**Input Configuration**  
 ```yaml
 fields:
   - id: host
@@ -18,10 +18,10 @@ fields:
 required:
   - host
   - token
-```. 
-Injector Configuration
+```  
+**Injector Configuration**
 ```yaml
 extra_vars:
   k8s_auth_host: "{{ host }}"
   k8s_auth_api_key: "{{ token }}"
-```. 
+```  
