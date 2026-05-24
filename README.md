@@ -5,7 +5,7 @@
 > configuring ansible.cfg, [follow this course](https://developers.redhat.com/learning/learn:ansible:getting-started-ansible-content-collections/resource/resources:finding-and-installing-collections-and-using-them-playbooks?source=sso)  
 > **Automation Controller**  
   >> Oragnisation = Application Development  
->  > Credentials  
+    >>> Credentials  
     >>>   Project  
     >   Job template  
     >   Inventory  
