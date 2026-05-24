@@ -17,10 +17,10 @@
     > Credentils Type --  
     > Credentils
       >  Red Hat Ansible Automation Platform  
-      >  Openshift Token
-  > DE -- 
-  > Projects
-  > RuleBook Activation
+      >  Openshift Token  
+    > DE  
+    > Projects  
+    > RuleBook Activation  
 
 > [!TIP]
 >
