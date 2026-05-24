@@ -10,7 +10,7 @@
     >>>   Project  
     >   Job template  
     >   Inventory  
-    >   EE --  
+    >   EE --  global
     
 > **Automation Decisions**  
   > Oragnisation = Application Development  
