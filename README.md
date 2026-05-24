@@ -9,14 +9,14 @@
     >>>   Project  
     >   Job template  
     >   Inventory  
-    >   EE -- NA  
+    >   EE -- 
 >  **Automation Decisions**  
   > Oragnisation = Application Development  
-    > Credentils Type -- NA  
+    > Credentils Type --  
     > Credentils
       >  Red Hat Ansible Automation Platform  
       >  Openshift Token
-  > DE -- NA
+  > DE -- 
   > Projects
   > RuleBook Activation
 
