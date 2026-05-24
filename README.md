@@ -9,7 +9,7 @@
     >>>   Project  
     >   Job template  
     >   Inventory  
-    >   EE -- 
+    >   EE --  
 >  **Automation Decisions**  
   > Oragnisation = Application Development  
     > Credentils Type --  
