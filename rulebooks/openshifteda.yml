@@ -8,9 +8,13 @@
         kinds:
           - api_version: v1
             kind: Namespace
+        label_selectors:
+          - type=eda
   rules:
     - name: Set Resource Quotas to a Namespace
-      condition: event.resource.kind == "Namespace" and event.type == "ADDED"
+      condition: >
+        event.resource.kind == "Namespace" and (event.type == "ADDED" or event.type == "MODIFIED") and
+        event.resource.metadata.labels.type == "eda"
       action:
         run_job_template:
           name: OpenShift Set Resource Quota on Namespace
