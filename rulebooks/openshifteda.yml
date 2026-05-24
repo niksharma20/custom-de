@@ -18,6 +18,7 @@
       action:
         run_job_template:
           name: OpenShift Set Resource Quota on Namespace
+          organization: "{{ eda_target_org | default('Default') }}"
           job_args:
             extra_vars:
               namespace: "{{ event.resource.metadata.name }}"
