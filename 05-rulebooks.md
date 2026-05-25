@@ -1,4 +1,4 @@
-# Rulebooks
+# [Rulebooks](/rulebooks)
 
 ## Overview
 
