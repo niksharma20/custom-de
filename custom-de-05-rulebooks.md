@@ -46,7 +46,8 @@ This is **not polling** — OpenShift pushes events to the stream in real time a
 
 ### Event Structure
 
-Each event received from the stream has the following structure, accessible in rule conditions via `event.*`:
+Each event received from the stream has the following structure, accessible in rule conditions via `event.*`:  
+Below is an example.  
 
 ```yaml
 event:
