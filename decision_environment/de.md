@@ -1,4 +1,4 @@
-# Decision Environment: Build Manifest
+# Decision Environment
 
 ## Overview
 
