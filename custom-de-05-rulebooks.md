@@ -89,7 +89,7 @@ rules:
   condition: >
     event.type == "ADDED" and
     event.resource.kind == "Namespace" and
-    event.resource.metadata.labels["eda-governed"] == "true"
+    event.resource.metadata.labels.type == "eda"
   action:
     run_job_template:
       name: "NaaS - Namespace Onboarding Notification"
