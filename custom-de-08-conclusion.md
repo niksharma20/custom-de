@@ -17,7 +17,7 @@ The full stack now looks like this:
 │               ORCHESTRATOR (SonataFlow)                         │
 │     Approval workflows · Stateful processes · Notifications     │
 └─────────────────────────────┬───────────────────────────────────┘
-                              │ Namespace + eda-governed=true label
+                              │ Namespace + type=eda label
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
 │                  GITOPS (ArgoCD)                                 │
