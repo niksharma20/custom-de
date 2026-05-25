@@ -1,4 +1,4 @@
-# Playbooks
+# [Playbooks](playbooks)
 
 ## Overview
 
