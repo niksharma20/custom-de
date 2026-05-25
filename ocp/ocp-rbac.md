@@ -1,4 +1,4 @@
-# OpenShift RBAC Setup for EDA
+# [OpenShift RBAC Setup for EDA](ocp)
 
 ## Overview
 
