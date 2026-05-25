@@ -88,7 +88,7 @@ For each playbook, create a corresponding Job Template in AAC:
    |Credentials          |OpenShift credential (for `kubernetes.core.k8s` authentication)         |
 1. Click **Save**
 
-> **⚠️ Important**
+> **⚠️ Important**  
 > The Job Template name in AAC must **exactly match** the name specified in the EDA rulebook’s `run_job_template.name` field. A mismatch causes the rule action to fail silently or with a 404 error.
 
 -----
