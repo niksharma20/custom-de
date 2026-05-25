@@ -58,7 +58,6 @@ event:
       namespace: "team-payments-dev"
       labels:
         type: "eda"
-        eda-governed: "true"
       annotations:
         eda.ansible.com/watch-events: "PersistentVolumeClaim,Secret,NetworkPolicy"
     spec: { ... }
