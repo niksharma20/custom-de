@@ -37,17 +37,9 @@ oc apply -f ocp/01_eda-clusterrole.yaml
 
 ## Step 2: Create the ServiceAccount
 
-**File:** `ocp/eda-serviceaccount.yaml`
+**File:** [ocp/02_eda-serviceaccount.yaml](ocp/02_eda-serviceaccount.yaml)
 
-The ServiceAccount is the machine identity the EDA controller presents when connecting to OpenShift. It is created in a dedicated namespace (e.g. `aap`) to keep it isolated from workload namespaces.
-
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: eda-service-account
-  namespace: aap
-```
+The ServiceAccount is the machine identity the EDA controller presents when connecting to OpenShift. It is created in a dedicated namespace (e.g. `aap`) to keep it isolated from workload namespaces.  
 
 **Apply:**
 
@@ -56,31 +48,16 @@ metadata:
 oc create namespace aap
 
 # Create the ServiceAccount
-oc apply -f ocp/eda-serviceaccount.yaml
+oc apply -f ocp/02_eda-serviceaccount.yaml
 ```
 
 -----
 
 ## Step 3: Bind the ServiceAccount to the ClusterRole
 
-**File:** `ocp/eda-rolebinding.yaml`
+**File:** [ocp/03_eda-rolebinding.yaml](ocp/03_eda-rolebinding.yaml)
 
 The ClusterRoleBinding connects the ServiceAccount (Step 2) to the ClusterRole (Step 1), granting the identity its read-only permissions.
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: eda-cluster-watcher-binding
-subjects:
-  - kind: ServiceAccount
-    name: eda-service-account
-    namespace: aap
-roleRef:
-  kind: ClusterRole
-  name: eda-cluster-watcher
-  apiGroup: rbac.authorization.k8s.io
-```
 
 **Apply:**
 
@@ -92,25 +69,14 @@ oc apply -f ocp/eda-rolebinding.yaml
 
 ## Step 4: Generate a Persistent Long-Lived Token
 
-**File:** `ocp/eda-token-secret.yaml`
+**File:** [ocp/04_eda-token-secret.yaml](ocp/04_eda-token-secret.yaml)
 
 OpenShift does not auto-generate permanent tokens for ServiceAccounts. Since the EDA controller lives outside the cluster, you must manually create a Secret to house a permanent bearer token.
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: eda-token-secret
-  namespace: aap
-  annotations:
-    kubernetes.io/service-account.name: eda-service-account
-type: kubernetes.io/service-account-token
-```
 
 **Apply:**
 
 ```bash
-oc apply -f ocp/eda-token-secret.yaml
+oc apply -f ocp/04_eda-token-secret.yaml
 ```
 
 > **⚠️ Important**
