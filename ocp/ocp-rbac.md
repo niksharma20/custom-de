@@ -20,7 +20,7 @@ Additionally, the Juniper `k8s.eda` event source plugin uses label selectors to 
 
 ## Step 1: Create the ClusterRole
 
-**File:** `ocp/eda-clusterrole.yaml`
+**File:** `{ocp/eda-clusterrole.yaml](ocp/01_eda-clusterrole.yaml)`
 
 The ClusterRole defines exactly what the EDA service account is allowed to do — **read-only access** to the resource types the rulebooks need to watch.
 
