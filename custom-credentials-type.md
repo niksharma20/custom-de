@@ -1,4 +1,4 @@
-# Custom Credential Types
+# [Custom Credential Types](eda_custom_credential/)
 
 ## Overview
 
