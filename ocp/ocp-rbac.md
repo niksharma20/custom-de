@@ -20,49 +20,14 @@ Additionally, the Juniper `k8s.eda` event source plugin uses label selectors to 
 
 ## Step 1: Create the ClusterRole
 
-**File:** [ocp/eda-clusterrole.yaml](ocp/01_eda-clusterrole.yaml)
+**File:** [ocp/01_eda-clusterrole.yaml](ocp/01_eda-clusterrole.yaml)
 
 The ClusterRole defines exactly what the EDA service account is allowed to do — **read-only access** to the resource types the rulebooks need to watch.
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: eda-cluster-watcher
-rules:
-  - apiGroups: [""]
-    resources:
-      - namespaces
-      - pods
-      - services
-      - routes
-      - persistentvolumeclaims
-      - secrets
-      - configmaps
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups: ["networking.k8s.io"]
-    resources:
-      - networkpolicies
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups: ["route.openshift.io"]
-    resources:
-      - routes
-    verbs:
-      - get
-      - list
-      - watch
-```
 
 **Apply:**
 
 ```bash
-oc apply -f ocp/eda-clusterrole.yaml
+oc apply -f ocp/01_eda-clusterrole.yaml
 ```
 
 > **ℹ️ Note**
