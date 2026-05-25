@@ -55,5 +55,4 @@ The credential can now be assigned to Rulebook Activations or Job Templates.
 ## Further Reading
 
 - [AAP Custom Credential Types documentation](https://docs.ansible.com/automation-controller/latest/html/userguide/credential_types.html)
-- [AWX Custom Credential Types reference](https://github.com/ansible/awx/blob/devel/docs/credentials/custom_credential_types.md)
 - [AAP Credentials overview](https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/latest/html/using_automation_decisions/eda-credentials)
