@@ -97,25 +97,6 @@ rules:
             extra_vars:
               namespace: "{{ event.resource.metadata.name }}"
 ```
-
-#### Example Rule: Route Created Without TLS
-
-```yaml
-- name: Route created without TLS
-  condition: >
-    event.type == "ADDED" and
-    event.resource.kind == "Route" and
-    event.resource.spec.tls is not defined
-  action:
-    run_job_template:
-      name: "NaaS - Flag Insecure Route"
-      organization: Platform
-      job_args:
-        extra_vars:
-          namespace: "{{ event.resource.metadata.namespace }}"
-          route_name: "{{ event.resource.metadata.name }}"
-```
-
 -----
 
 ## How the Three Layers Map Together
