@@ -115,7 +115,7 @@ oc label namespace <your-namespace> type=eda
 oc label pod <your-pod-name> -n <your-namespace> type=eda
 ```
 
-For namespaces provisioned through the Namespace as a Service workflow with the **EDA Governance** checkbox enabled, this label is applied automatically at provisioning time via the Helm chart. You only need to apply it manually for namespaces provisioned outside the workflow.
+For namespaces provisioned through the Namespace as a Service workflow with the **EDA Governance** checkbox enabled, this label is applied automatically at provisioning time. You only need to apply it manually for namespaces provisioned outside the workflow.
 
 -----
 
