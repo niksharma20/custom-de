@@ -1,4 +1,4 @@
-# EDA Credentials Configuration
+# [EDA Credentials Configuration](eda_credentials/)
 
 ## Overview
 
@@ -86,17 +86,18 @@ Navigate to **Automation Decisions → Credentials → Create credential** and s
 When a rule fires, the `run_job_template` action uses this credential to authenticate against AAC:
 
 ```yaml
-rules:
-  - name: NetworkPolicy deleted
-    condition: event.type == "DELETED" and event.resource.kind == "NetworkPolicy"
-    action:
-      run_job_template:
-        name: "NaaS - Restore NetworkPolicy"
-        organization: Platform
-        job_args:
-          extra_vars:
-            namespace: "{{ event.resource.metadata.namespace }}"
-            policy_name: "{{ event.resource.metadata.name }}"
+  rules:
+    - name: Set Resource Quotas to a Namespace
+      condition: >
+        event.resource.kind == "Namespace" and (event.type == "ADDED" or event.type == "MODIFIED") and
+        event.resource.metadata.labels.type == "eda"
+      action:
+        run_job_template:
+          name: OpenShift Set Resource Quota on Namespace
+          organization: "Default"
+          job_args:
+            extra_vars:
+              namespace: "{{ event.resource.metadata.name }}"
 ```
 
 AAP reads the AAC credential assigned to the activation and injects the connection details automatically — no URL or token appears in the rulebook YAML.
