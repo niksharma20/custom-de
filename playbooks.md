@@ -133,6 +133,5 @@ This creates a **dual audit trail**:
 ## Further Reading
 
 - [kubernetes.core collection](https://docs.ansible.com/ansible/latest/collections/kubernetes/core/index.html)
-- [AAP Job Templates](https://docs.ansible.com/automation-controller/latest/html/userguide/job_templates.html)
 - [AAP Execution Environments](https://ansible.readthedocs.io/projects/builder/en/latest/)
 - [Ansible idempotency guide](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency)
