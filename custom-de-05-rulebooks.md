@@ -85,19 +85,17 @@ rules:
 #### Example Rule: New Namespace Created
 
 ```yaml
-- name: New governed namespace detected
-  condition: >
-    event.type == "ADDED" and
-    event.resource.kind == "Namespace" and
-    event.resource.metadata.labels.type == "eda"
-  action:
-    run_job_template:
-      name: "NaaS - Namespace Onboarding Notification"
-      organization: Platform
-      job_args:
-        extra_vars:
-          namespace: "{{ event.resource.metadata.name }}"
-          owner: "{{ event.resource.metadata.annotations['provisioned-by'] | default('unknown') }}"
+    - name: Set Resource Quotas to a Namespace
+      condition: >
+        event.resource.kind == "Namespace" and (event.type == "ADDED" or event.type == "MODIFIED") and
+        event.resource.metadata.labels.type == "eda"
+      action:
+        run_job_template:
+          name: OpenShift Set Resource Quota on Namespace
+          organization: "Default"
+          job_args:
+            extra_vars:
+              namespace: "{{ event.resource.metadata.name }}"
 ```
 
 #### Example Rule: Route Created Without TLS
