@@ -63,9 +63,9 @@ All playbooks in this repository follow these conventions:
 
 -----
 
-## Playbook Reference
+## Playbook References
 
-### Playbook: [apply_enterprise_compliance_Quotas.yml](playbooksapply_enterprise_compliance_Quotas.yml)
+### [apply_enterprise_compliance_Quotas.yml](playbooksapply_enterprise_compliance_Quotas.yml)
 
 -----
 
