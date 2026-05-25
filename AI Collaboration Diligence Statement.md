@@ -1,6 +1,6 @@
 # AI Collaboration Diligence Statement
 
-> *A reflection on the responsible use of artificial intelligence in the development of the Security & Advocacy Program*
+> *A reflection on the responsible use of artificial intelligence in the development of custom-de*
 
 ---
 
