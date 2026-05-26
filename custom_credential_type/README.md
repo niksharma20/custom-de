@@ -1,0 +1,1 @@
+custom-credentials-type.md
