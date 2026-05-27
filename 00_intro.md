@@ -10,6 +10,14 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 
 -----
 
+> [!WARNING]
+> 
+> ## Prerequisites
+> We will be using a CI from Red Hat Demo to provide us the baseline Infrastrature.  
+>  [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)
+>
+> 
+
 ## What This Repository Does
 
 ```
