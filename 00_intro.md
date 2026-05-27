@@ -15,8 +15,10 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 > ## Prerequisites
 > We will be using a CI from Red Hat Demo to provide us the baseline Infrastrature.  
 >  [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)
->
-> 
+>  Access to an **OpenShift cluster 4.18+** with cluster-admin or equivalent permissions
+>  The `oc` CLI authenticated to your OpenShift cluster
+>  The `ansible-builder` CLI installed (for building the DE image) -- Optional
+>  A container registry accessible from your AAP instance (e.g. Quay, OpenShift internal registry) -- Optional
 
 ## What This Repository Does
 
@@ -72,18 +74,6 @@ By working through this repository, you will be able to:
 - Activate a rulebook in AAP that streams live events from OpenShift
 - Understand how the `kubeconfig` credential projection works in AAP
 - Trigger and verify remediation playbooks via AAC job templates
-
------
-
-## Prerequisites
-
-Before working through this repository, ensure you have:
-
-- Access to an **OpenShift cluster** with cluster-admin or equivalent permissions
-- **Ansible Automation Platform 2.4+** with both Automation Controller (AAC) and Automation Decisions (EDA) deployed
-- The `oc` CLI authenticated to your OpenShift cluster
-- The `ansible-builder` CLI installed (for building the DE image)
-- A container registry accessible from your AAP instance (e.g. Quay, OpenShift internal registry)
 
 -----
 
