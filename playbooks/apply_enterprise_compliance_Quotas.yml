@@ -8,7 +8,7 @@
     target_namespace: "{{ namespace }}"
 
   tasks:
-    - name: Create ResourceQuota object in the new namespace
+    - name: Apply ResourceQuota object in the new namespace as per Enterprise Compliance Quotas cpu=2,memory=2G
       kubernetes.core.k8s:
         definition:
           apiVersion: v1
