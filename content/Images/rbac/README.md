@@ -2,5 +2,5 @@
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|[custom_credential_type](content/custom_credential_type)/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
-|[rbac](content/rbac)/                    |OpenShift RBAC manifests for EDA and AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[rbac/aac](content/Images/rbac/aac)/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
+|[rbac/eda](content/Images/rbac/eda)/                    |OpenShift RBAC manifests for EDA and AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
