@@ -1,4 +1,4 @@
-# [EDA Credentials Configuration](eda_credentials/)
+# [EDA Credentials Configuration](content/eda_credentials/eda-credentials.md)
 
 ## Overview
 
@@ -14,16 +14,18 @@ The EDA Decision Controller needs to authenticate to two separate systems:
 
 |System                       |Why                                                    |Credential Type                    |
 |-----------------------------|-------------------------------------------------------|-----------------------------------|
-|OpenShift                    |To stream cluster events via the Juniper k8s.eda plugin|OpenShift/Kubernetes Bearer Token  |
+|OpenShift                    |To stream cluster events via the Juniper k8s.eda plugin|OpenShift Service Account Token  |
 |Ansible Automation Controller|To fire job templates when a rulebook rule matches     |Red Hat Ansible Automation Platform|
 
 These are configured separately and both assigned to the same Rulebook Activation.
 
 -----
 
-## Credential 1: OpenShift Bearer Token
+## Credential 1: [OpenShift Service Account Token](content/custom_credential_type/custom_credential_option_2.md)
 
 This credential gives the EDA Decision Controller its identity when connecting to the OpenShift API.
+
+## Credential 2: [Red Hat Ansible Automation Platform](content/eda_credentials/aap-credential.md)  
 
 ### What to configure in AAP
 
