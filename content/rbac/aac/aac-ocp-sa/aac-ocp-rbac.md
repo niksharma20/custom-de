@@ -1,4 +1,4 @@
-# OpenShift RBAC Setup for AAC on your Target Openshift Cluster
+# OpenShift RBAC Setup for AAC
 
 ## Overview
 
