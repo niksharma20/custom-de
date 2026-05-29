@@ -2,8 +2,10 @@
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|[eda](content/rbac/eda/)/                    |OpenShift RBAC manifests for EDA — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
-|[acc](content/rbac/aac/)/                    |OpenShift RBAC manifests for AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[eda-ocp-sa](content/rbac/eda/eda-ocp-sa)/                    |OpenShift RBAC manifests for EDA — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[aac-ocp-sa](content/rbac/aac/aac-ocp-sa)/                    |OpenShift RBAC manifests for AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[eda](content/rbac/eda/)/                    |OpenShift RBAC manifests for EDA and steps to EDA credentials |
+|[acc](content/rbac/aac/)/                    |OpenShift RBAC manifests for AAC nd steps to AAC credential             |
 
 
 ## Overview
