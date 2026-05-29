@@ -28,8 +28,8 @@ A Decision Environment is a container image that packages the Ansible EDA runtim
 |[playbooks/](playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
 |[custom_credential_type](content/custom_credential_type)/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
 |[rbac](content/rbac)/                    |OpenShift RBAC manifests for EDA and AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
-|[decision_environment/](content/decision_environment)              |Images used to create this workshop                       |
-|[execution_environment/](content/execution_environment)              |Images used to create this workshop                       |
+|[decision_environment/](content/decision_environment)              |Steps to configure your Decision Environment - EDA                     |
+|[execution_environment/](content/execution_environment)              |Steps to configure your Automation Controller  - AAC                      |
 |[Images/](content/Images)              |Images used to create this workshop                       |
 
 -----
