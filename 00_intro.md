@@ -1,4 +1,4 @@
-# Custom Decision Environment for Event-Driven Ansible on OpenShift
+# Custom Decision Environment for Event-Driven Ansible for OpenShift
 
 ## Introduction
 
