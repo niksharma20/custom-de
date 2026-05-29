@@ -24,7 +24,7 @@ Once a custom credential type is created, you can create one or more credentials
 
 ## Custom Credential Types in This Repository
 
-### [OpenShift Token Type](content/custom_credential_type/custom_credential_option_2.md)
+### [OpenShift Service Account Token](content/custom_credential_type/custom_credential_option_2.md)
 -----
 -----
 
