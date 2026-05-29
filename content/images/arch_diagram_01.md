@@ -23,10 +23,10 @@ graph TD
     class AAP,DE,AC,PB aap;
 
     %% Workflow Flows
-    API -->|Encrypted async event stream<br>Filtered by label: type=eda<br>Powered by: kubernetes_asyncio| DE
-    DE -->|"Event payload evaluated against rulebook<br>Conditions: event.type, event.resource.kind..."| AC
-    AC -->|"Matched rule fires run_job_template<br>Extra vars: namespace, resource_name..."| PB
+    API -->|Encrypted async event stream<br>Filtered by label: type=eda<br>| DE
+    DE -->|"Event payload evaluated against rulebook<br>"| AC
+    AC -->|"Matched rule fires run_job_template<br>"| PB
     PB -->|"Patches / restores<br>NIS2/CIS compliance annotation"| STATE
     
     %% The Loop Back
-    STATE -.->|New event triggers<br>next watch cycle| API
+    STATE -.->|New event| API
