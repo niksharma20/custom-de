@@ -78,7 +78,7 @@ By working through this repository, you will be able to:
 
 -----
 
-## [Architecture](content/images/arch_diagram_01.md)
+## [Architecture](content/images/arch_aap_ocp.png)
 
 -----
 
