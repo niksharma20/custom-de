@@ -3,6 +3,7 @@ site_description: EDA Governance for OpenShift with juniper.eda.k8s
 site_author: Nikhil Sharma
 repo_url: https://github.com/niksharma20/custom-de
 repo_name: niksharma20/custom-de
+docs_dir: .
 
 extra:
   collaborator: Ismail Dhaoui
