@@ -1,4 +1,4 @@
-# [OpenShift RBAC Setup for EDA](ocp)
+# OpenShift RBAC Setup for AAC on your Target Openshift Cluster
 
 ## Overview
 
