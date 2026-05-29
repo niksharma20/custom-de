@@ -1,7 +1,7 @@
 ## Creating Custom Credential Type for EDA, Generating a file: Kubeconfig (Secure File Projection)  
 
 ```
-Name: OpenShift Token Type
+Name: OpenShift Service Account Token
 Description: For mapping OpenShift Bearer tokens into rulebooks
 ```
 
