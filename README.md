@@ -26,11 +26,11 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|`eda_credentials/`        |AAP credential type definitions for EDA — structured YAML for importing into AAP                         |
-|`eda_custom_credential/`  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
-|`ocp/`                    |OpenShift RBAC manifests — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
-|`[rulebooks/](rulebooks)`              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
-|`[playbooks/](playbooks)`              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
+|eda_credentials/        |AAP credential type definitions for EDA — structured YAML for importing into AAP                         |
+|eda_custom_credential/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
+|ocp/                    |OpenShift RBAC manifests — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[rulebooks/](rulebooks)              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
+|[playbooks/](playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
 
 -----
 
