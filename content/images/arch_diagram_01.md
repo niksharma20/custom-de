@@ -11,15 +11,11 @@ graph TD
     end
     class K8S,API k8s;
 
-
-
     subgraph AAP [Ansible Automation Platform]
         DE[Decision Environment<br>juniper.eda.k8s]
         AC[Automation Controller<br>Executes Playbooks]
     end
     class AAP,DE,AC aap;
-
-
 
     subgraph DC [Governed Namespace]
         JA[Juniper Apstra<br>HPE Apstra Data Center Director]
