@@ -9,7 +9,7 @@ graph TD
         API[OpenShift API Server]
         
         subgraph NS [Governed Namespace]
-            STATE["Certs, PV, Quota"]
+            STATE["Certs, PV, Quota, NetworkPolicy"]
         end
     end
     class API ocp;
