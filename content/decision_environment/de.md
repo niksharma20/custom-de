@@ -12,11 +12,11 @@
 
 
 
-|Collection                              ||Purpose                                                                                                      |
-|----------------------------------------||-------------------------------------------------------------------------------------------------------------|
-|`ansible.eda`                         ||Core EDA event sources and filters (webhook, kafka, alertmanager, etc.)                                      |
-|`community.general`                     ||Ansible Galaxy|General-purpose Ansible modules used in rulebook actions                                                     |
-|`k8s.eda.git`||Kubernetes/OpenShift event source plugin — streams `ADDED`, `MODIFIED`, `DELETED` events from the cluster API|
+|Collection                              |Purpose                                                                                                      |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+|`ansible.eda`                         |Core EDA event sources and filters (webhook, kafka, alertmanager, etc.|
+|`community.general`                     |Ansible Galaxy|General-purpose Ansible modules used in rulebook actions|
+|`k8s.eda.git`|Kubernetes/OpenShift event source plugin — streams `ADDED`, `MODIFIED`, `DELETED` events from the cluster API|
 
 
 > **⚠️ Important**
