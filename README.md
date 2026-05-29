@@ -21,22 +21,6 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 >  5) A container registry accessible from your AAP instance (e.g. Quay, OpenShift internal registry) -- Optional
 > 
 
-## What This Repository Does  
-
-```
-Custom Decision Environment (container image)
-          ↓
-Packages: juniper.eda.k8s + ansible.eda + kubernetes_asyncio
-          ↓
-Deployed to: AAP Automation Decisions (EDA Decision Controller)
-          ↓
-Authenticates to OpenShift via: ServiceAccount + ClusterRole + Bearer Token
-          ↓
-Watches: Namespaces, Routes, PVCs, Secrets, NetworkPolicies (labelled resources)
-          ↓
-Fires rulebook rules → triggers AAC Job Templates → remediates cluster state
-```
-
 -----
 
 ## Repository Structure
