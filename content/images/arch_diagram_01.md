@@ -26,7 +26,7 @@ graph TD
     API -->|Async event stream| DE
     DE -->|"Event payload evaluated against rulebook"| AC
     AC -->|"Matched rule fires run_job_template"| PB
-    PB -->|| STATE
+    PB -->|" "| STATE
     
     %% The Loop Back
     STATE -.->|New event| API
