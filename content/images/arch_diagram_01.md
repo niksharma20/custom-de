@@ -3,7 +3,7 @@ graph TD
     %% Define Styles and Colors
     classDef k8s fill:#326ce5,stroke:#fff,stroke-width:2px,color:#fff;
     classDef aap fill:#ee0000,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef dc fill:#4A5568,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef ns fill:#4A5568,stroke:#fff,stroke-width:2px,color:#fff;
     classDef edge stroke:#718096,stroke-width:2px,stroke-dasharray: 5 5;
 
     subgraph K8S [Kubernetes / OpenShift]
@@ -17,7 +17,7 @@ graph TD
     end
     class AAP,DE,AC aap;
 
-    subgraph DC [Data Center Management]
+    subgraph DC [Governed Namespace]
         JA[Juniper Apstra<br>HPE Apstra Data Center Director]
         LS[Leaf/Spine Fabric<br>Multi-vendor Network Switches]
     end
