@@ -17,7 +17,6 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 >  1) [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)  
 >  2) Access to an **OpenShift cluster 4.18+** with cluster-admin or equivalent permissions  
 >  3) The `oc` CLI authenticated to your OpenShift cluster  
->  4) The `ansible-builder` CLI installed (for building the DE image) -- Optional  
 >  5) A container registry accessible from your AAP instance (e.g. Quay, OpenShift internal registry) -- Optional
 > 
 
@@ -27,14 +26,11 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|`decision-environment.yml`|The DE build manifest — defines the base image, collections, Python deps, and system packages            |
 |`eda_credentials/`        |AAP credential type definitions for EDA — structured YAML for importing into AAP                         |
 |`eda_custom_credential/`  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
 |`ocp/`                    |OpenShift RBAC manifests — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
-|`rulebooks/`              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
-|`playbooks/`              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
-|`extra/`                  |Supporting files — additional configuration, utilities, or reference material                            |
-|`00_ocp_execution.md`     |Step-by-step OpenShift setup guide — apply RBAC, generate tokens, label namespaces                       |
+|`[rulebooks/](rulebooks)`              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
+|`[playbooks/](playbooks)`              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
 
 -----
 
