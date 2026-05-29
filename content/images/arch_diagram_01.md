@@ -9,7 +9,7 @@ graph TD
         API[OpenShift API Server]
         
         subgraph NS [Governed Namespace]
-            STATE["Desired State Restored<br>[eda.ansible.com/last-remediated](https://eda.ansible.com/last-remediated): timestamp"]
+            STATE["Certs, PV, Quota"]
         end
     end
     class API ocp;
