@@ -78,20 +78,7 @@ By working through this repository, you will be able to:
 
 -----
 
-## Quick Start Sequence
-
-```
-1. Build the Decision Environment     → decision-environment.yml
-2. Push image to your registry        → ansible-builder build + podman push
-3. Register DE in AAP                 → Automation Decisions → Decision Environments
-4. Apply OpenShift RBAC               → ocp/ manifests
-5. Extract ServiceAccount token       → 00_ocp_execution.md Step 5
-6. Configure EDA credentials in AAP  → eda_credentials/ + eda_custom_credential/
-7. Create AAC Job Templates           → playbooks/
-8. Import rulebook project in AAP    → rulebooks/
-9. Activate rulebook                  → Automation Decisions → Rulebook Activations
-10. Label target namespaces           → oc label namespace <name> type=eda
-```
+## [Architecture](content/images/arch_diagram_01.md)
 
 -----
 
