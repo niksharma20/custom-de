@@ -1,16 +1,12 @@
-# [EDA Credentials Configuration](content/eda_credentials/eda-credentials.md)
-
 ## Overview
 
-The `eda_credentials/` directory contains the credential definitions needed to authenticate the EDA Decision Controller to both **OpenShift** and **Ansible Automation Controller (AAC)**. These are imported into AAP’s Automation Decisions interface and assigned to Rulebook Activations.
+The `rbac` directory contains the credential definitions needed by [EDA](content/rbac/eda) and [AAC](content/rbac/aac) to authenticate against the Target Openshift Cluster
 
 Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.
 
 -----
 
 ## Why Two Credential Types Are Needed
-
-The EDA Decision Controller needs to authenticate to two separate systems:
 
 |System                       |Why                                                    |Credential Type                    |
 |-----------------------------|-------------------------------------------------------|-----------------------------------|
