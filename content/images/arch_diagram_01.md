@@ -23,10 +23,10 @@ graph TD
     class AAP,DE,AC,PB aap;
 
     %% Workflow Flows
-    API -->|Encrypted async event stream| DE
+    API -->|Async event stream| DE
     DE -->|"Event payload evaluated against rulebook"| AC
     AC -->|"Matched rule fires run_job_template"| PB
-    PB -->|"Patches / restores<br>NIS2/CIS compliance annotation"| STATE
+    PB -->| STATE
     
     %% The Loop Back
     STATE -.->|New event| API
