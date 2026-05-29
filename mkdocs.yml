@@ -1,0 +1,30 @@
+site_name: Event Driven Ansible For OpenShift
+site_description: EDA Governance for OpenShift with juniper.eda.k8s
+site_author: Nikhil Sharma
+site_colloborator: Ismail Dhaoui @https://github.com/idhaoui
+repo_url: https://github.com/niksharma20/custom-de
+repo_name: niksharma20/custom-de
+
+theme:
+  name: material
+  palette:
+    primary: red
+    accent: red
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+
+nav:
+  - Home: README.md
+  - Setup:
+    - Decision Environment: content/decision_environment/de.md
+    - Execution Environment: content/execution_environment/ee.md
+  - Configuration:
+    - RBAC: content/rbac/rbac.md
+      - EDA OCP Credentials: content/rbac/eda/eda-ocp-credential.md
+      - EDA AAP Credentials: content/rbac/eda/eda_aap_credentials.md
+    - Custom Credentials: content/custom_credential_type/custom-credentials-type.md
+  - Rulebooks: rulebooks/README.md
+  - Playbooks: playbooks/README.md
