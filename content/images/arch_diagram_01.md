@@ -23,9 +23,9 @@ graph TD
     class AAP,DE,AC,PB aap;
 
     %% Workflow Flows
-    API -->|Encrypted async event stream<br>Filtered by label: type=eda<br>| DE
-    DE -->|"Event payload evaluated against rulebook<br>"| AC
-    AC -->|"Matched rule fires run_job_template<br>"| PB
+    API -->|Encrypted async event stream| DE
+    DE -->|"Event payload evaluated against rulebook"| AC
+    AC -->|"Matched rule fires run_job_template"| PB
     PB -->|"Patches / restores<br>NIS2/CIS compliance annotation"| STATE
     
     %% The Loop Back
