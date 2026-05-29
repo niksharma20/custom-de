@@ -1,8 +1,8 @@
-# [Custom Credential Types](eda_custom_credential/)
+# [Custom Credential Types]()
 
 ## Overview
 
-The `eda_custom_credential/` directory contains **custom credential type definitions** for AAP. These extend the built-in credential types available in Automation Decisions with organisation-specific schemas — allowing you to pass structured, encrypted configuration to rulebooks and playbooks in a standardised, reusable way.
+The `custom_credential_type` directory contains **custom credential type definitions** for AAP. These extend the built-in credential types available in Automation Decisions with organisation-specific schemas — allowing you to pass structured, encrypted configuration to rulebooks and playbooks in a standardised, reusable way.
 
 Custom credential types are particularly useful when your rulebooks or playbooks need to interact with internal systems (such as a private Git server, an ITSM platform, or a Vault instance) that AAP does not natively support with a built-in credential type.
 
