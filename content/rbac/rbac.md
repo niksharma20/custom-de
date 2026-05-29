@@ -1,35 +1,36 @@
+## Repository Structure
+
+|Path                      |Purpose                                                                                                  |
+|--------------------------|---------------------------------------------------------------------------------------------------------|
+|[eda](content/rbac/eda/)/                    |OpenShift RBAC manifests for EDA — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[acc](content/rbac/aac/)/                    |OpenShift RBAC manifests for AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+
+
 ## Overview
 
-The `rbac` directory contains the credential definitions needed by [EDA](content/rbac/eda) and [AAC](content/rbac/aac) to authenticate against the Target Openshift Cluster
+This directory contains the credential definitions needed by [EDA](content/rbac/eda) and [AAC](content/rbac/aac) to authenticate against the Target Openshift Cluster
 
 Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.
 
 -----
-# EDA  
+# EDA Credentials
 
-## Two Credential
-
-|System                       |Why                                                    |Credential Type                    |
-|-----------------------------|-------------------------------------------------------|-----------------------------------|
-|OpenShift                    |To stream cluster events via the Juniper k8s.eda plugin|OpenShift Service Account Token  |
-|Ansible Automation Controller|To fire job templates when a rulebook rule matches     |Red Hat Ansible Automation Platform|
+|System                       |Why                                                    |Credential Type                    |Details                    |
+|-----------------------------|-------------------------------------------------------|-----------------------------------|-----------------------------------
+|OpenShift                    |To stream cluster events via the Juniper k8s.eda plugin|OpenShift Service Account Token  |[OpenShift Service Account Token](content/custom_credential_type/custom_credential_option_2.md)|
+|Ansible Automation Controller|To fire job templates when a rulebook rule matches     |Red Hat Ansible Automation Platform|[aap credentials](content/rbac/eda/eda_aap_credentials.md) |
 
 These are configured separately and both assigned to the same Rulebook Activation.
 
 -----
+# AAC  Credential
 
-## Credential 1: [OpenShift Service Account Token](content/custom_credential_type/custom_credential_option_2.md)
+|System                       |Why                                                    |Credential Type                    |Details                    |
+|-----------------------------|-------------------------------------------------------|-----------------------------------|-----------------------------------
+|OpenShift                    |AAC OpenShift token is the identity credential that allows remediation playbooks to make changes in OpenShift on behalf of AAC|OpenShift/Kubernetes Bearer Token |[OCP Cluster token for AAC](content/rbac/aac/aac-ocp-credential.md)|
 
-This credential gives the EDA Decision Controller its identity when connecting to the OpenShift API.
 
-## Credential 2: [aap credentials](content/rbac/eda/eda_aap_credentials.md)  
-
------
-
------
-# ACC  
-
-## ..
+These are configured separately for the execution of the remediation of the playbooks of AAC Job templates.
 
 ## Further Reading
 
