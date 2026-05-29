@@ -31,6 +31,7 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 |ocp/                    |OpenShift RBAC manifests — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
 |[rulebooks/](rulebooks)              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
 |[playbooks/](playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
+|[Images/](content/Images)              |Images used to create this workshop                       |
 
 -----
 
