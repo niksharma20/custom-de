@@ -1,4 +1,4 @@
-# [Custom Credential Types]()
+# [Custom Credential Types](content/custom_credential_type/custom-credentials-type.md)
 
 ## Overview
 
