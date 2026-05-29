@@ -80,7 +80,7 @@ By working through this repository, you will be able to:
 
 ## Architecture
 
-![Architecture Diagram](content/images/arch_aap_ocp.png)
+![Architecture Diagram](content/Images/arch_aap_ocp.png)
 
 -----
 
