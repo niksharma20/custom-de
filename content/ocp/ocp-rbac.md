@@ -103,19 +103,9 @@ oc whoami --show-server
 
 -----
 
-## Step 6: Label Target Namespaces
+## Step 6: Label Target Namespaces  
 
-The Juniper `k8s.eda` plugin uses label selectors to scope event watching. Any namespace or resource you want the EDA controller to monitor must carry the appropriate label.
-
-```bash
-# Label a namespace for EDA monitoring
-oc label namespace <your-namespace> type=eda
-
-# Label a specific pod (if watching pod-level events)
-oc label pod <your-pod-name> -n <your-namespace> type=eda
-```
-
-For namespaces provisioned through the Namespace as a Service workflow with the **EDA Governance** checkbox enabled, this label is applied automatically at provisioning time. You only need to apply it manually for namespaces provisioned outside the workflow.
+** For namespaces provisioned through the Namespace as a Service workflow with the **EDA Governance** checkbox enabled, this label is applied automatically at provisioning time. You only need to apply it manually for namespaces provisioned outside the workflow.**
 
 -----
 
