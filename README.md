@@ -26,11 +26,12 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|eda_credentials/        |AAP credential type definitions for EDA — structured YAML for importing into AAP                         |
-|eda_custom_credential/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
-|ocp/                    |OpenShift RBAC manifests — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
 |[rulebooks/](rulebooks)              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
 |[playbooks/](playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
+|[custom_credential_type](content/custom_credential_type)/  |Custom credential type definitions — extends AAP with OpenShift token and EDA-specific credential schemas|
+|[rbac](content/rbac)/                    |OpenShift RBAC manifests for EDA and AAC — ClusterRole, ServiceAccount, ClusterRoleBinding, and token Secret             |
+|[decision_environment/](content/decision_environment)              |Images used to create this workshop                       |
+|[execution_environment/](content/execution_environment)              |Images used to create this workshop                       |
 |[Images/](content/Images)              |Images used to create this workshop                       |
 
 -----
@@ -40,10 +41,8 @@ This is the **infrastructure backbone** for the EDA governance layer described i
 ### Goals
 
 1. **Enable real-time cluster governance** — move from periodic polling to event-driven reactions to cluster state changes using a custom EDA Decision Environment with the Juniper k8s event source.
-1. **Provide a reusable, version-controlled DE** — the `decision-environment.yml` manifest is the single source of truth for the DE image. Any change to collections, Python deps, or the base image is tracked in Git and reproducible.
-1. **Establish least-privilege OpenShift access** — the RBAC manifests in `ocp/` give the EDA controller the minimum permissions needed to watch cluster resources — read-only `get`, `list`, `watch` — with no write access.
 1. **Bridge EDA and AAC cleanly** — rulebooks in this repo do not contain remediation logic themselves; they fire AAC job templates. This keeps decision logic (EDA) and execution logic (AAC + playbooks) cleanly separated.
-1. **Support the Namespace as a Service governance model** — when namespaces are provisioned with `eda-governed=true`, this DE and its rulebooks automatically activate governance without any additional manual configuration.
+
 
 ### Objectives
 
