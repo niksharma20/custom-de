@@ -102,48 +102,8 @@ oc whoami --show-server
 ```
 
 -----
-
-## Step 6: Label Target Namespaces  
-
-** For namespaces provisioned through the Namespace as a Service workflow with the **EDA Governance** checkbox enabled, this label is applied automatically at provisioning time. You only need to apply it manually for namespaces provisioned outside the workflow.**
-
 -----
 
-## How the Rulebook Uses These Components
-
-The table below maps each OpenShift component to the rulebook parameter that depends on it:
-
-|Rulebook Parameter                   |OpenShift Component                            |Purpose                                                               |
-|-------------------------------------|-----------------------------------------------|----------------------------------------------------------------------|
-|`eda.filename.kubeconfig`            |Step 4 & 5: Token Secret                       |Provides identity and cluster endpoint to the Juniper plugin          |
-|`juniper.eda.k8s` (connection)       |Step 2 & 3: ServiceAccount + ClusterRoleBinding|Identifies the incoming connection as `eda-service-account`           |
-|`kind: Namespace`, `kind: Route` etc.|Step 1: ClusterRole resource list              |Verifies this account has `get/list/watch` permissions for those types|
-|`label_selectors: type=eda`          |Step 6: Object labels                          |Filters events — only labelled resources generate events in the stream|
-
-### How kubeconfig Credential Projection Works
-
-When a Rulebook Activation runs in AAP with an OpenShift token credential assigned:
-
-1. AAP reads the decoded OpenShift bearer token from the credential
-1. AAP dynamically writes a valid `kubeconfig` file into the container runtime at activation time
-1. AAP assigns the generated file path to the internal variable `{{ eda.filename.kubeconfig }}`
-1. The Juniper plugin reads this file to discover the cluster API endpoint and authenticate
-
-This means **you never hardcode cluster URLs or tokens in your rulebook YAML** — they are injected at runtime by AAP’s credential system.
-
------
-
-## Summary
-
-```
-eda-clusterrole.yaml        → What EDA can read (get/list/watch on specific resources)
-eda-serviceaccount.yaml     → Who EDA is (machine identity in the aap namespace)
-eda-rolebinding.yaml        → Connects identity to permissions
-eda-token-secret.yaml       → Persistent token for external (out-of-cluster) access
-oc label namespace ...      → Scopes event streaming to labelled resources only
-```
-
------
 
 ## Further Reading
 
