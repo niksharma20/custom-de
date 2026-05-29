@@ -5,8 +5,9 @@ The `rbac` directory contains the credential definitions needed by [EDA](content
 Credentials in AAP are never exposed in plaintext to rulebooks — they are injected at runtime via file projection or environment variables, depending on the credential type.
 
 -----
+# EDA  
 
-## Why Two Credential Types Are Needed
+## Two Credential
 
 |System                       |Why                                                    |Credential Type                    |
 |-----------------------------|-------------------------------------------------------|-----------------------------------|
@@ -21,9 +22,14 @@ These are configured separately and both assigned to the same Rulebook Activatio
 
 This credential gives the EDA Decision Controller its identity when connecting to the OpenShift API.
 
-## Credential 2: [Red Hat Ansible Automation Platform](content/eda_credentials/aap-credential.md)  
+## Credential 2: [aap credentials](content/rbac/eda/eda_aap_credentials.md)  
 
 -----
+
+-----
+# ACC  
+
+## ..
 
 ## Further Reading
 
