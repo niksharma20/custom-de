@@ -26,7 +26,7 @@ graph TD
     API -->|Encrypted async event stream<br>Filtered by label: type=eda<br>Powered by: kubernetes_asyncio| DE
     DE -->|"Event payload evaluated against rulebook<br>Conditions: event.type, event.resource.kind..."| AC
     AC -->|"Matched rule fires run_job_template<br>Extra vars: namespace, resource_name..."| PB
-    PB -->|"Patches / restores<br>Writes NIS2/CIS compliance annotation"| STATE
+    PB -->|"Patches / restores<br>NIS2/CIS compliance annotation"| STATE
     
     %% The Loop Back
     STATE -.->|New event triggers<br>next watch cycle| API
