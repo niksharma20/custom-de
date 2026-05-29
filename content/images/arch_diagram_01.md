@@ -17,14 +17,16 @@ graph TD
     end
     class AAP,DE,AC aap;
 
-    subgraph DC [Governed Namespace]
-        JA[Juniper Apstra<br>HPE Apstra Data Center Director]
-        LS[Leaf/Spine Fabric<br>Multi-vendor Network Switches]
+    subgraph NS ["Governed Namespace (type=eda)"]
+        NP["NetworkPolicy"]
+        RQ["ResourceQuota"]
+        RB2["RoleBinding"]
+        POD["Pod / Secret/ PVC"]
     end
-    class DC,JA,LS dc;
+    class DC,JA,LS ns;
 
     %% Flows
     API -->|Encrypted Event Stream<br>via kubernetes_asyncio| DE
     DE -->|Evaluates Rulebooks| AC
-    AC -->|API Calls / Netconf| JA
+    AC -->|API Calls | JA
     JA -->|Physical Switch Provisioning| LS
