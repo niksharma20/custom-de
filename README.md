@@ -63,3 +63,10 @@ By working through this repository, you will be able to:
 - [OpenShift RBAC documentation](https://docs.openshift.com/container-platform/latest/authentication/using-rbac.html)
 - [Event-Driven Ansible content by Andrew Block](https://github.com/sabre1041/sabre1041.eda)
 - [demo-event-driven-ansible](https://github.com/redhat-gpte-devopsautomation/demo-event-driven-ansible/tree/main)
+
+-----  
+> [!Note]
+> 
+> Anthropic's Sonnet and Google's Gemini were used documentation and reserch during the creation of this workshop.
+>
+-----  
