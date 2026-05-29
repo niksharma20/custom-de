@@ -24,9 +24,7 @@ Once a custom credential type is created, you can create one or more credentials
 
 ## Custom Credential Types in This Repository
 
-### [Type 1: OpenShift Token](eda_custom_credential/custom_credential_option_1.md)
-
-### [Type 1: OpenShift Token](eda_custom_credential/custom_credential_option_2.md)
+### [OpenShift Token Type](content/custom_credential_type/custom_credential_option_2.md)
 -----
 -----
 
