@@ -30,5 +30,3 @@ nav:
       - EDA OCP Credentials: content/rbac/eda/eda-ocp-credential.md
       - EDA AAP Credentials: content/rbac/eda/eda_aap_credentials.md
     - Custom Credentials: content/custom_credential_type/custom-credentials-type.md
-  - Rulebooks: content/rulebooks/rulebooks.md
-  - Playbooks: content/playbooks/playbooks.md
