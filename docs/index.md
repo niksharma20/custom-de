@@ -1,8 +1,8 @@
 # Event-Driven Ansible for OpenShift  
 
 ## Architecture  
-<img src="docs/content/images/arch_diagram.jpg" width="750" alt="Architecture Diagram"/>
 
+![Architecture Diagram](docs/content/images/arch_diagram.jpg)
 
 ## Introduction
 
