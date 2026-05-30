@@ -406,7 +406,7 @@
 
 <h1 id="event-driven-ansible-for-openshift">Event-Driven Ansible for OpenShift</h1>
 <h2 id="architecture">Architecture</h2>
-<p><img alt="Architecture Diagram" src="content/images/arch_diagram.png" />{ width="800" }</p>
+<p><img alt="Architecture Diagram" src="docs/content/images/arch_diagram.jpg" />{ width="800" }</p>
 <h2 id="introduction">Introduction</h2>
 <p>This repository contains everything needed to build, configure, and operate <strong>Event-Driven Automation (EDA)</strong> for OpenShift.</p>
 <p>A Decision Environment is a container image that packages the Ansible EDA runtime, event source plugins, Python dependencies, and system libraries needed to execute rulebooks in the Ansible Automation Platform (AAP) Decision Controller. This repository provides a <strong>custom DE</strong> that extends the Red Hat supported base image with the <a href="https://catalog.redhat.com/en/software/collection/juniper/eda">Juniper k8s.eda</a> event source plugin — enabling real-time Kubernetes and OpenShift resource event streaming directly into EDA rulebooks.</p>
