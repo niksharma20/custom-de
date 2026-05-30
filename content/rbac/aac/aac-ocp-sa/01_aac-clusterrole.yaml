@@ -1,0 +1,30 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aac-service-account
+rules:
+  - apiGroups: [""]
+    resources:
+      - namespaces
+      - pods
+      - persistentvolumeclaims
+      - resourcequotas
+      - limitranges
+      - configmaps
+    verbs: ["get", "list", "patch", "update", "delete", "create"]
+
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - networkpolicies
+    verbs: ["get", "list", "patch", "update", "delete", "create"]
+
+  - apiGroups: ["route.openshift.io"]
+    resources:
+      - routes
+    verbs: ["get", "list", "patch", "update"]
+
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources:
+      - rolebindings
+    verbs: ["get", "list", "delete"]
