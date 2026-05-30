@@ -2,7 +2,7 @@
 
 ## Architecture  
 
-![Architecture Diagram](docs/content/images/arch_diagram.jpg)
+![Architecture Diagram](content/images/arch_diagram.jpg)
 
 ## Introduction
 
