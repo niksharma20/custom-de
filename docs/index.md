@@ -1,7 +1,7 @@
 # Event-Driven Ansible for OpenShift  
 
 ## Architecture  
-![Architecture Diagram](docs/content/Images/arch_diagram.jpg)
+![Architecture Diagram](content/Images/arch_diagram.jpg)
 
 ## Introduction
 
