@@ -1,7 +1,7 @@
 # Event-Driven Ansible for OpenShift  
 
 ## Architecture  
-![Architecture Diagram](content/Images/arch_diagram.jpg)
+![Architecture Diagram](docs/content/Images/arch_diagram.jpg)
 
 ## Introduction
 
@@ -24,8 +24,8 @@ A Decision Environment is a container image that packages the Ansible EDA runtim
 
 |Path                      |Purpose                                                                                                  |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
-|[rulebooks/](rulebooks)              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
-|[playbooks/](playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
+|[rulebooks/](/rulebooks)              |EDA rulebooks — event source configuration and rules that map cluster events to AAC job templates        |
+|[playbooks/](/playbooks)              |Ansible playbooks — remediation logic executed by AAC when a rulebook rule fires                         |
 |[content](content)/  |All workshop content is in this directory|
 
 -----
