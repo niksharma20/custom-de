@@ -63,6 +63,6 @@ By working through this repository, you will be able to:
 -----  
 > [!Note]
 > 
-> Anthropic's Sonnet and Google's Gemini were used documentation and reserch during the creation of this workshop.
+> Anthropic's Sonnet and Google's Gemini were used in documentation and reserch during the creation of this workshop.
 >
 -----  
