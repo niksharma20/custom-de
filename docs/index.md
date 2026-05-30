@@ -1,7 +1,8 @@
 # Event-Driven Ansible for OpenShift  
 
 ## Architecture  
-![Architecture Diagram](docs/content/images/arch_diagram.jpg){ width="800" }
+<img src="docs/content/images/arch_diagram.jpg" width="750" alt="Architecture Diagram"/>
+
 
 ## Introduction
 
@@ -10,8 +11,6 @@ This repository contains everything needed to build, configure, and operate **Ev
 A Decision Environment is a container image that packages the Ansible EDA runtime, event source plugins, Python dependencies, and system libraries needed to execute rulebooks in the Ansible Automation Platform (AAP) Decision Controller. This repository provides a **custom DE** that extends the Red Hat supported base image with the [Juniper k8s.eda](https://catalog.redhat.com/en/software/collection/juniper/eda) event source plugin — enabling real-time Kubernetes and OpenShift resource event streaming directly into EDA rulebooks.
 
 -----  
-> [!WARNING]
-> 
 > ## Prerequisites
 > We will be using a CI from Red Hat Demo to provide us the baseline Infrastrature.  
 >  1) [Ansible 2.6 with EDA](https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/enterprise.aap-product-demos-cnv-aap25.prod&utm_source=webapp&utm_medium=share-link)  
