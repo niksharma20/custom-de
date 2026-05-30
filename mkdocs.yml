@@ -3,7 +3,6 @@ site_description: EDA Governance for OpenShift with juniper.eda.k8s
 site_author: Nikhil Sharma
 repo_url: https://github.com/niksharma20/custom-de
 repo_name: niksharma20/custom-de
-docs_dir: .
 
 extra:
   collaborator: Ismail Dhaoui
@@ -21,13 +20,4 @@ theme:
     - search.suggest
 
 nav:
-  - Home: README.md
-  - Setup:
-    - Decision Environment: content/decision_environment/de.md
-    - Execution Environment: content/execution_environment/ee.md
-  - Configuration:
-    - RBAC:
-      - Overview: content/rbac/rbac.md
-      - EDA OCP Credentials: content/rbac/eda/eda-ocp-credential.md
-      - EDA AAP Credentials: content/rbac/eda/eda_aap_credentials.md
-    - Custom Credentials: content/custom_credential_type/custom-credentials-type.md
+  - Home: index.md
