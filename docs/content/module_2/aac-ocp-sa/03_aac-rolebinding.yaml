@@ -1,0 +1,13 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aac-service-account
+subjects:
+  - kind: ServiceAccount
+    name: aac-service-account
+    namespace: aap
+roleRef:
+  kind: ClusterRole
+  name: aac-service-account
+  apiGroup: rbac.authorization.k8s.io

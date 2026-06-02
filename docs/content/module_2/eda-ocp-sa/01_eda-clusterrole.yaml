@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: eda-service-account-role
+rules:
+  - apiGroups: [""]
+    resources:
+      - namespaces
+      - pods
+      - persistentvolumeclaims    # PV
+      - resourcequotas            # Quota
+      - limitranges               # Quota enforcement
+      - secrets                   # Certs (TLS secrets)
+      - configmaps
+      - serviceaccounts
+    verbs: ["get", "list", "watch"]
+
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - networkpolicies           # NetworkPolicy
+    verbs: ["get", "list", "watch"]
+
+  - apiGroups: ["route.openshift.io"]
+    resources:
+      - routes                    # Insecure route detection
+    verbs: ["get", "list", "watch"]
+
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources:
+      - rolebindings              # Privilege escalation detection
+      - clusterrolebindings       # Cluster-admin binding detection
+    verbs: ["get", "list", "watch"]
