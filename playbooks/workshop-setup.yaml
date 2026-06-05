@@ -1,0 +1,220 @@
+---
+- name: Workshop Setup — Service Accounts + AAP Credentials + Configuration
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    aap_url: "https://{{ lookup('env', 'AAP_URL') }}"
+    aap_username: "{{ lookup('env', 'AAP_USERNAME') }}"
+    aap_password: "{{ lookup('env', 'AAP_PASSWORD') }}"
+    ocp_api_url: "{{ lookup('pipe', 'oc whoami --show-server') }}"
+
+  tasks:
+
+    # ── Step 1: Create namespace ──────────────────────────────
+    - name: Create aap namespace
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Namespace
+          metadata:
+            name: aap
+
+    # ── Step 2: Apply EDA manifests ───────────────────────────
+    - name: Apply EDA Service Account manifests
+      kubernetes.core.k8s:
+        state: present
+        src: "{{ item }}"
+      loop:
+        - eda-ocp-sa/01_eda-clusterrole.yaml
+        - eda-ocp-sa/02_eda-serviceaccount.yaml
+        - eda-ocp-sa/03_eda-rolebinding.yaml
+        - eda-ocp-sa/04_eda-token-secret.yaml
+
+    # ── Step 3: Apply AAC manifests ───────────────────────────
+    - name: Apply AAC Service Account manifests
+      kubernetes.core.k8s:
+        state: present
+        src: "{{ item }}"
+      loop:
+        - aac-ocp-sa/01_aac-clusterrole.yaml
+        - aac-ocp-sa/02_aac-serviceaccount.yaml
+        - aac-ocp-sa/03_aac-rolebinding.yaml
+        - aac-ocp-sa/04_aac-token-secret.yaml
+
+    # ── Step 4: Extract tokens ────────────────────────────────
+    - name: Extract EDA token
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Secret
+        name: eda-token-secret
+        namespace: aap
+      register: eda_secret
+
+    - name: Extract AAC token
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Secret
+        name: aac-token-secret
+        namespace: aap
+      register: aac_secret
+
+    - name: Set token facts
+      set_fact:
+        eda_token: "{{ eda_secret.resources[0].data.token | b64decode }}"
+        aac_token: "{{ aac_secret.resources[0].data.token | b64decode }}"
+
+    # ── Step 5: Create custom EDA credential type ─────────────
+    - name: Create custom EDA credential type
+      ansible.controller.credential_type:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OpenShift Service Account Token"
+        description: "For mapping OpenShift Bearer tokens into rulebooks"
+        kind: cloud
+        inputs:
+          fields:
+            - id: host
+              type: string
+              label: OpenShift API Server URL
+            - id: token
+              type: string
+              label: Bearer Token
+              secret: true
+          required:
+            - host
+            - token
+        injectors:
+          file:
+            template.kubeconfig: |
+              apiVersion: v1
+              kind: Config
+              clusters:
+                - cluster:
+                    insecure-skip-tls-verify: true
+                    server: "{{ '{{' }} host {{ '}}' }}"
+                  name: openshift-cluster
+              contexts:
+                - context:
+                    cluster: openshift-cluster
+                    user: eda-runner
+                  name: eda-context
+              current-context: eda-context
+              users:
+                - name: eda-runner
+                  user:
+                    token: "{{ '{{' }} token {{ '}}' }}"
+
+    # ── Step 6: Create EDA credential ────────────────────────
+    - name: Create OpenShift credential for EDA
+      ansible.controller.credential:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OpenShift Cluster Token for EDA"
+        organization: Default
+        credential_type: "OpenShift Service Account Token"
+        inputs:
+          host: "{{ ocp_api_url }}"
+          token: "{{ eda_token }}"
+
+    # ── Step 7: Create AAC credential ────────────────────────
+    - name: Create OpenShift credential for AAC
+      ansible.controller.credential:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OCP Cluster Token for AAC"
+        organization: Default
+        credential_type: "OpenShift or Kubernetes API Bearer Token"
+        inputs:
+          host: "{{ ocp_api_url }}"
+          bearer_token: "{{ aac_token }}"
+          verify_ssl: false
+
+    # ── Step 8: Create EDA Decision Environment ───────────────
+    - name: Create EDA Decision Environment
+      ansible.controller.execution_environment:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "DE-Juniper"
+        image: "quay.io/rhn_support_idhaoui/de-juniper:1.0"
+        pull: always
+
+    # ── Step 9: Create EDA Project ────────────────────────────
+    - name: Create EDA Project
+      ansible.controller.project:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "EDA Rulebooks"
+        scm_type: git
+        scm_url: "https://github.com/niksharma20/custom-de.git"
+        scm_branch: main
+
+    # ── Step 10: Create AAC Execution Environment ─────────────
+    - name: Create AAC Execution Environment
+      ansible.controller.execution_environment:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "ee-ansible-techday"
+        image: "quay.io/rhn_support_idhaoui/ee-custom/ee-ansible-ssa:latest"
+        pull: missing
+
+    # ── Step 11: Create AAC Project ───────────────────────────
+    - name: Create AAC Project
+      ansible.controller.project:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "Namespace Governance"
+        scm_type: git
+        scm_url: "https://github.com/niksharma20/custom-de.git"
+        scm_branch: main
+        default_environment: "ee-ansible-techday"
+
+    # ── Step 12: Create AAC Job Template ──────────────────────
+    - name: Create AAC Job Template
+      ansible.controller.job_template:
+        controller_host: "{{ aap_url }}"
+        controller_username: "{{ aap_username }}"
+        controller_password: "{{ aap_password }}"
+        validate_certs: false
+        name: "OpenShift Set Resource Quota on Namespace"
+        job_type: run
+        inventory: "Demo Inventory"
+        project: "Namespace Governance"
+        playbook: "playbooks/apply_enterprise_compliance_Quotas.yml"
+        credentials:
+          - "OCP Cluster Token for AAC"
+        execution_environment: "ee-ansible-techday"
+        ask_variables_on_launch: true
+        extra_vars:
+          namespace: "default-placeholder"
+
+    # ── Step 13: Confirm ──────────────────────────────────────
+    - name: Workshop setup complete
+      debug:
+        msg:
+          - "OCP namespace aap created"
+          - "EDA ServiceAccount + RBAC created"
+          - "AAC ServiceAccount + RBAC created"
+          - "Custom credential type created"
+          - "EDA credential created"
+          - "AAC credential created"
+          - "EDA Decision Environment registered"
+          - "EDA Project synced"
+          - "AAC Execution Environment registered"
+          - "AAC Project synced"
+          - "AAC Job Template created"
